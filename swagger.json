@@ -1,0 +1,43 @@
+{
+  "swagger": "2.0",
+  "paths": {
+    "/transport": {
+      "post": {
+        "tags": [
+          "transport"
+        ],
+        "summary": "Creates an order.",
+        "operationId": "createTransport",
+        "parameters": [
+          {
+            "x-go-name": "Pet",
+            "description": "The pet to submit.",
+            "name": "transport",
+            "in": "body",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/orderResponse"
+          },
+          "422": {
+            "$ref": "#/responses/validationError"
+          },
+          "default": {
+            "$ref": "#/responses/genericError"
+          }
+        }
+      }
+    }
+  },
+  "responses": {
+    "genericError": {
+      "description": "A GenericError is the default error message that is generated.\nFor certain status codes there are more appropriate error structures."
+    },
+    "validationError": {
+      "description": "A ValidationError is an that is generated for validation failures.\nIt has the same fields as a generic error but adds a Field property."
+    }
+  }
+}
